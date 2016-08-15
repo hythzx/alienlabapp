@@ -1,0 +1,59 @@
+<div class="modal-header">
+	<h3 class="modal-title">{{ModTitle}}</h3>
+</div>
+<div class="modal-body">
+	<form role="form" name="addUserform" class="form-horizontal" novalidate="novalidate">
+		<div class="form-group">
+			<label class="col-sm-3 control-label">用户登录名</label>
+			<div class="col-sm-7">
+				<input name="loginname" id="input-loginname" type="text" placeholder="请输入用户登录名" class="form-control" ng-model="form.loginname" required />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-3 control-label">用户密码</label>
+			<div class="col-sm-7">
+				<input name="password" id="input-password" type="password" placeholder="请设置密码" class="form-control" ng-model="form.password" required />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-3 control-label">用户名称</label>
+			<div class="col-sm-7">
+				<input name="username" id="input-username" type="text" placeholder="请输入用户名称" class="form-control" ng-model="form.username" required />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-3 control-label">用户权限</label>
+			<div class="col-sm-7">
+<!-- 			<input name="purview" id="input-purview" type="text" placeholder="请输入用户权限" class="form-control" ng-model="form.purview" required />
+ -->			
+ 				<label class="radio-inline">
+				  <input type="radio" name="purview" id="" value="ALL" ng-model="form.purview"> ALL
+				</label>
+ 				<label class="radio-inline" ng-repeat="shop in shops">
+				  <input type="radio" name="purview" id="" value="{{shop.shopName}}" ng-model="form.purview"> {{shop.shopName}}
+				</label>
+				
+ 			</div>
+		</div>
+		
+		<div class="form-group" ng-if="ModTitle=='修改用户'">  
+            <label class="col-sm-3 control-label">用户状态</label>
+            <div class="col-sm-7"> 
+            	<label class="radio-inline"> 
+				  <input type="radio" name="status" id="" value="1" ng-model="form.status"> 正常
+				</label>
+            	<label class="radio-inline">
+				  <input type="radio" name="status" id="" value="0" ng-model="form.status"> 异常
+				</label>
+        	</div>       
+        </div>
+
+	</form>
+</div>
+<div class="modal-footer">
+    <button class="mb-sm btn btn-primary" type="submit" ng-disabled="addUserform.$invalid" ng-click="save(addUserform)">保存</button>
+    <button class="mb-sm btn btn-danger" type="button" ng-click="cancel()">取消</button>
+</div>

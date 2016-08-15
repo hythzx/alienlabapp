@@ -1,0 +1,78 @@
+[
+  {
+    "text": "功能菜单",
+    "heading": "true"
+  },
+  {
+    "text": "分店运行",
+    "sref": "#",
+    "icon": "icon-home",
+    "submenu": [
+      { "text": "预约查询",
+        "sref": "shop.arrange"
+      },
+      { "text": "客户结算",
+        "sref": "shop.deal"
+      },
+      { "text": "流水统计",
+        "sref": "shop.flow"
+      },
+      { "text": "业绩查询",
+        "sref": "shop.money"
+      },
+      { "text": "门店维护",
+        "sref": "shop.shopmanage"
+      },
+      { "text": "员工维护",
+        "sref": "shop.staffmanage"
+      }
+    ]
+  },
+  {
+    "text": "产品管理",
+    "sref": "#",
+    "icon": "icon-list",
+    "submenu": [
+      { "text": "产品维护",
+        "sref": "product.crud",
+        "active":true
+      },
+      { "text": "卡券维护",
+        "sref": "product.card"
+      }
+    ]
+  },
+  {
+    "text": "客户管理",
+    "sref": "#",
+    "icon": "icon-user-following",
+    "submenu": [
+      { "text": "客户管理",
+        "sref": "cus.customer"
+      },
+      { "text": "客户查询",
+        "sref": "cus.cuslist"
+      }
+    ]
+  },
+  {
+    "text": "佣金设置",
+    "sref": "#",
+    "icon": "icon-pie-chart",
+    "submenu": [
+      { "text": "佣金设置",
+        "sref": "money.moneyconfig"
+      }
+    ]
+  },
+  {
+  	"text": "系统设置",
+  	"sref": "#",
+  	"icon": "icon-wrench",
+  	"submenu": [
+  	  { "text": "用户管理",
+  		"sref":"system.usermanage"
+  	  }
+  	]
+  }
+]

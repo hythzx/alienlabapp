@@ -1,0 +1,83 @@
+<style>
+	.navbar-default.user {            
+    	margin-top: -1.8%;    
+	    background-color: #F5F7FA;
+	    border-color: #F5F7FA;
+	}
+	.btn.btn-default.user {  
+    	margin-top: 10px; 
+    }
+	.table.users > tbody > tr > td,.table > thead:first-child > tr:first-child > th { 
+        text-align:center;  
+		vertical-align: middle;
+   }
+   table.users .btn-sm {    
+		border-color: #F5F4F4;
+	} 
+	table.users .btn-sm.del {
+		color: rgb(255,64,129);
+	}
+	table.users .btn-sm.del:hover {
+		border-color: #FFE1E1;
+    	background-color: #FFF7F7;
+	}       
+	table.users .btn-sm.upd {
+		color: rgb(22, 178, 255);
+	}
+	table.users .btn-sm.upd:hover {
+		border-color: #E1EBFF;
+    	background-color: #F6FCFF;
+	}
+</style>
+
+<h3>{{title}}</h3>   
+<nav class="navbar navbar-default user">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button class="btn btn-default user add" ng-click="adduser()"><span class="btn-label"><i class="fa fa-plus"></i></span> 添加用户 </button>
+			<button class="btn btn-default user del" ng-click="deleteusers()"><span class="btn-label"><i class="fa fa-minus"></i></span> 删除所选用户 </button>
+		</div>
+		<ul class="nav navbar-nav navbar-right search">
+			<form class="navbar-form navbar-left" role="search">      
+		       <div class="form-group"> 
+		         <input type="text" class="form-control" placeholder="用户姓名、用户号搜索" ng-model="searchkey">
+		       </div>
+		       <button type="submit" class="btn btn-default" ng-click="searchuser(searchkey)">搜  索</button>   
+		     </form>
+		
+		</ul>
+	</div>
+</nav>
+
+<table class="table table-striped users">
+	<thead>
+		<tr>
+			<th><input type="checkbox" ng-model="$isselectall" ng-click="selectall($value)"/></th>
+			<th>ID 编号</th>
+			<th>用户工号</th>
+			<th>用户名称</th>
+			<th>创建日期</th>
+			<th>最近登录日期</th>
+			<th>权限</th>
+			<th>状态</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="user in users">
+			<td><input type="checkbox" staffid="{{user.userid}}" ng-model="user.$isselected" /></td>
+			<td>{{user.userid}}</td>
+			<td>{{user.loginname}}</td>
+			<td>{{user.username}}</td>
+			<td>{{user.createtime|date : 'yyyy-MM-dd'}}</td>
+			<td>{{user.lastlogin|date : 'yyyy-MM-dd'}}</td>
+			<td>{{user.purview}}</td>
+			<td ng-if="user.status=='1'"> 正常 </td>
+			<td ng-if="user.status=='0'"> 异常 </td>
+			<td>
+				<a class="btn btn-default btn-sm upd" ng-click="updateuser(user)">修改</a>                      
+          		<a class="btn btn-default btn-sm del" ng-click="deleteuser(user.userid)">删除</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
